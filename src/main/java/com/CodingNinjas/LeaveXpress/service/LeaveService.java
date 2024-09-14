@@ -1,5 +1,7 @@
 package com.CodingNinjas.LeaveXpress.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +18,9 @@ public class LeaveService {
     public LeaveModel getLeaveById(Long id){
         return leaveRepository.findById(id)
         .orElseThrow(() -> new LeaveNotFoundException("leave not found by Id: " + id));
+    }
+
+    public List<LeaveModel> getAllLeaves(){
+        return leaveRepository.findAll();
     }
 }
