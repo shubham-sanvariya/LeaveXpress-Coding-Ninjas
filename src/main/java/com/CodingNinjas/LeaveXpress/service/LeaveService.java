@@ -27,4 +27,8 @@ public class LeaveService {
     public List<LeaveModel> getAllAcceptedLeaves(){
         return leaveRepository.findByAccepted(true);
     }
+
+    public List<LeaveModel> getAllRejectedLeaves() {
+        return leaveRepository.findByAccepted(false);
+    }
 }
