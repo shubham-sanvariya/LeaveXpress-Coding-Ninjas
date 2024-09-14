@@ -16,32 +16,38 @@ import com.CodingNinjas.LeaveXpress.service.LeaveService;
 @RestController
 @RequestMapping("/api/leave")
 public class LeaveController {
-    
+
     @Autowired
     private LeaveService leaveService;
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public LeaveModel getLeaveById(@PathVariable Long id){
+    public LeaveModel getLeaveById(@PathVariable Long id) {
         return leaveService.getLeaveById(id);
     }
 
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    public List<LeaveModel> getAllLeave(){
+    public List<LeaveModel> getAllLeave() {
         return leaveService.getAllLeaves();
     }
 
     @GetMapping("/accepted")
     @ResponseStatus(HttpStatus.OK)
-    public List<LeaveModel> getAllAcceptedLeaves(){
+    public List<LeaveModel> getAllAcceptedLeaves() {
         return leaveService.getAllAcceptedLeaves();
     }
 
     @GetMapping("/rejected")
     @ResponseStatus(HttpStatus.OK)
-    public List<LeaveModel> getAllRejectedLeaves(){
+    public List<LeaveModel> getAllRejectedLeaves() {
         return leaveService.getAllRejectedLeaves();
+    }
+
+    @GetMapping("/status/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public boolean getLeaveStatusById(Long id) {
+        return leaveService.getLeaveStatusById(id);
     }
     
 }
