@@ -50,4 +50,11 @@ public class LeaveService {
     public void DeleteLeaveById(Long id){
         leaveRepository.deleteById(id);
     }
+
+    public void ApplyForLeave(LeaveDto leaveDto){
+        LeaveModel leaveModel = new LeaveModel(leaveDto.getType(),leaveDto.getStartDate(),
+        leaveDto.getEndDate(),leaveDto.getDescription());
+
+        leaveRepository.save(leaveModel);
+    }
 }
