@@ -37,5 +37,11 @@ public class LeaveController {
     public List<LeaveModel> getAllAcceptedLeaves(){
         return leaveService.getAllAcceptedLeaves();
     }
+
+    @GetMapping("/rejected")
+    @ResponseStatus(HttpStatus.OK)
+    public List<LeaveModel> getAllRejectedLeaves(){
+        return leaveService.getAllRejectedLeaves();
+    }
     
 }
