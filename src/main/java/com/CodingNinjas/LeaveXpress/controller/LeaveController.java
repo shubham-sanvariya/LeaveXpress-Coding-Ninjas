@@ -78,4 +78,10 @@ public class LeaveController {
     public void acceptLeaveById(@PathVariable Long id){
         leaveService.acceptLeaveById(id);
     }
+
+    @PostMapping("/accept/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void rejectLeaveById(@PathVariable Long id){
+        leaveService.rejectLeaveById(id);
+    }
 }
