@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.CodingNinjas.LeaveXpress.dto.LeaveDto;
 import com.CodingNinjas.LeaveXpress.exception.LeaveNotFoundException;
 import com.CodingNinjas.LeaveXpress.model.LeaveModel;
 import com.CodingNinjas.LeaveXpress.repository.LeaveRepository;
@@ -34,5 +35,15 @@ public class LeaveService {
 
     public boolean getLeaveStatusById(Long id){
         return getLeaveById(id).isAccepted();
+    }
+
+    public void updateLeaveById(Long id, LeaveDto leaveDto){
+        LeaveModel leaveModel = getLeaveById(id);
+        leaveModel.setType(leaveDto.getType());
+        leaveModel.setStartDate(leaveDto.getStartDate());
+        leaveModel.setEndDate(leaveDto.getEndDate());
+        leaveModel.setDescription(leaveDto.getDescription());
+
+        leaveRepository.save(leaveModel);
     }
 }
