@@ -47,14 +47,20 @@ public class LeaveService {
         leaveRepository.save(leaveModel);
     }
 
-    public void DeleteLeaveById(Long id){
+    public void deleteLeaveById(Long id){
         leaveRepository.deleteById(id);
     }
 
-    public void ApplyForLeave(LeaveDto leaveDto){
+    public void applyForLeave(LeaveDto leaveDto){
         LeaveModel leaveModel = new LeaveModel(leaveDto.getType(),leaveDto.getStartDate(),
         leaveDto.getEndDate(),leaveDto.getDescription());
 
+        leaveRepository.save(leaveModel);
+    }
+
+    public void acceptLeaveById(Long id){
+        LeaveModel leaveModel = getLeaveById(id);
+        leaveModel.setAccepted(true);
         leaveRepository.save(leaveModel);
     }
 }
