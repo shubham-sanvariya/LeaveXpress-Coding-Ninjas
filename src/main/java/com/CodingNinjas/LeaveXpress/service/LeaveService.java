@@ -63,4 +63,10 @@ public class LeaveService {
         leaveModel.setAccepted(true);
         leaveRepository.save(leaveModel);
     }
+
+    public void rejectLeaveById(Long id) {
+        LeaveModel leaveModel = getLeaveById(id);
+        leaveModel.setAccepted(false);
+        leaveRepository.save(leaveModel);
+    }
 }
