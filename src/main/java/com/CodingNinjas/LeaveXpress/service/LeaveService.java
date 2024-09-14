@@ -23,4 +23,8 @@ public class LeaveService {
     public List<LeaveModel> getAllLeaves(){
         return leaveRepository.findAll();
     }
+
+    public List<LeaveModel> getAllAcceptedLeaves(){
+        return leaveRepository.findByAccepted(true);
+    }
 }
