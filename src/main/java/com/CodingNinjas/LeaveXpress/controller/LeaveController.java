@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.CodingNinjas.LeaveXpress.model.LeaveModel;
 import com.CodingNinjas.LeaveXpress.service.LeaveService;
 
-
 @RestController
 @RequestMapping("/api/leave")
 public class LeaveController {
@@ -31,6 +30,12 @@ public class LeaveController {
     @ResponseStatus(HttpStatus.OK)
     public List<LeaveModel> getAllLeave(){
         return leaveService.getAllLeaves();
+    }
+
+    @GetMapping("/accepted")
+    @ResponseStatus(HttpStatus.OK)
+    public List<LeaveModel> getAllAcceptedLeaves(){
+        return leaveService.getAllAcceptedLeaves();
     }
     
 }
