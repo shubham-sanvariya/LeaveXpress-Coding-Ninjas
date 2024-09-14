@@ -51,7 +51,7 @@ public class LeaveController {
 
     @GetMapping("/status/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public boolean getLeaveStatusById(Long id) {
+    public boolean getLeaveStatusById(@PathVariable Long id) {
         return leaveService.getLeaveStatusById(id);
     }
 
@@ -79,7 +79,7 @@ public class LeaveController {
         leaveService.acceptLeaveById(id);
     }
 
-    @PostMapping("/accept/{id}")
+    @PostMapping("/reject/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void rejectLeaveById(@PathVariable Long id){
         leaveService.rejectLeaveById(id);
