@@ -26,11 +26,11 @@ public class LeaveService {
     }
 
     public List<LeaveModel> getAllAcceptedLeaves(){
-        return leaveRepository.findByAccepted(true);
+        return leaveRepository.findByisAccepted(true);
     }
 
     public List<LeaveModel> getAllRejectedLeaves() {
-        return leaveRepository.findByAccepted(false);
+        return leaveRepository.findByisAccepted(false);
     }
 
     public boolean getLeaveStatusById(Long id){
