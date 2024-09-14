@@ -31,4 +31,8 @@ public class LeaveService {
     public List<LeaveModel> getAllRejectedLeaves() {
         return leaveRepository.findByAccepted(false);
     }
+
+    public boolean getLeaveStatusById(Long id){
+        return getLeaveById(id).isAccepted();
+    }
 }
