@@ -72,4 +72,10 @@ public class LeaveController {
     public void applyForLeave(@RequestBody LeaveDto leaveDto){
         leaveService.applyForLeave(leaveDto);
     }
+
+    @PostMapping("/accept/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void acceptLeaveById(@PathVariable Long id){
+        leaveService.acceptLeaveById(id);
+    }
 }
