@@ -46,4 +46,8 @@ public class LeaveService {
 
         leaveRepository.save(leaveModel);
     }
+
+    public void DeleteLeaveById(Long id){
+        leaveRepository.deleteById(id);
+    }
 }
