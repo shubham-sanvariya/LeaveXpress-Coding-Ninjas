@@ -10,5 +10,5 @@ import com.CodingNinjas.LeaveXpress.model.LeaveModel;
 @Repository
 public interface LeaveRepository extends JpaRepository<LeaveModel,Long>{
     
-    List<LeaveModel> findByAccepted(boolean accepted);
+    List<LeaveModel> findByisAccepted(boolean accepted);
 }
